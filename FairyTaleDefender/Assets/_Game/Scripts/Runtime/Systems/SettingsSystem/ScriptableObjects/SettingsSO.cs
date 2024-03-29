@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using BoundfoxStudios.FairyTaleDefender.Common;
 using BoundfoxStudios.FairyTaleDefender.Extensions;
 using BoundfoxStudios.FairyTaleDefender.Infrastructure.FileManagement;
@@ -20,6 +22,7 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem.ScriptableObj
 		public GraphicConfig Graphic => _gameSettings.EnsureOrThrow().Graphic;
 		public LocalizationConfig Localization => _gameSettings.EnsureOrThrow().Localization;
 		public CameraConfig Camera => _gameSettings.EnsureOrThrow().Camera;
+		public InputConfig Input => _gameSettings.EnsureOrThrow().Input;
 
 		private JsonFileManager _jsonFileManager = default!;
 		private readonly string _jsonFileName = "config.json";
@@ -52,6 +55,7 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem.ScriptableObj
 			public GraphicConfig Graphic = new();
 			public LocalizationConfig Localization = new();
 			public CameraConfig Camera = new();
+			public InputConfig Input = new();
 		}
 
 		[Serializable]
@@ -93,6 +97,41 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem.ScriptableObj
 
 			[Range(Constants.Settings.Panning.Start, Constants.Settings.Panning.Start)]
 			public float PanSpeed = 7.5f;
+		}
+
+		[Serializable]
+		public class InputConfig : ISerializationCallbackReceiver
+		{
+			[Serializable]
+			private class InputOverride
+			{
+				public string ActionName = string.Empty;
+				public string Overrides = string.Empty;
+			}
+
+			public Dictionary<string, string> InputOverrides = new();
+
+			[SerializeField]
+			// ReSharper disable once InconsistentNaming
+			private List<InputOverride> _inputOverrides = new();
+
+			public void OnBeforeSerialize()
+			{
+				var newOverrides = new List<InputOverride>();
+
+				foreach (var kvp in InputOverrides)
+				{
+					InputOverride newOverride = new() { ActionName = kvp.Key, Overrides = kvp.Value };
+					newOverrides.Add(newOverride);
+				}
+				_inputOverrides = newOverrides;
+			}
+
+			public void OnAfterDeserialize()
+			{
+				InputOverrides = _inputOverrides.ToDictionary(
+					x => x.ActionName, x => x.Overrides);
+			}
 		}
 	}
 }

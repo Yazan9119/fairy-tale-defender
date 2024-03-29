@@ -54,7 +54,7 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.InputSystem.ScriptableObject
 		public BoolEventChannelSO TogglePauseEventChannel { get; private set; } = default!;
 
 		private GameInput? _gameInput;
-		private GameInput GameInput => _gameInput.EnsureOrThrow();
+		public GameInput GameInput => _gameInput.EnsureOrThrow();
 
 		public delegate void ScreenPositionHandler(Vector2 screenPosition);
 

@@ -1,9 +1,11 @@
 using BoundfoxStudios.FairyTaleDefender.Common;
 using BoundfoxStudios.FairyTaleDefender.Infrastructure.Events.ScriptableObjects;
+using BoundfoxStudios.FairyTaleDefender.Systems.InputSystem.ScriptableObjects;
 using BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem.ScriptableObjects;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using UnityEngine.Localization.Settings;
 
 namespace BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem
@@ -22,6 +24,9 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem
 
 		[field: SerializeField]
 		private GameObject CursorEffects { get; set; } = default!;
+
+		[field: SerializeField]
+		private InputManagerSO InputManager { get; set; } = default!;
 
 		[field: Header("Listening on")]
 		[field: SerializeField]
@@ -79,6 +84,7 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem
 			ApplyGraphicSettings();
 			ApplyLocalizationSettings();
 			ApplyCursorSettings();
+			ApplyInputOverrides();
 		}
 
 		private void ApplyCursorSettings()
@@ -123,6 +129,15 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem
 
 			LocalizationSettings.SelectedLocale =
 				LocalizationSettings.AvailableLocales.GetLocale(Settings.Localization.Locale);
+		}
+
+		private void ApplyInputOverrides()
+		{
+			foreach (var inputOverride in Settings.Input.InputOverrides)
+			{
+				var action = InputManager.GameInput.FindAction(inputOverride.Key);
+				action?.LoadBindingOverridesFromJson(inputOverride.Value);
+			}
 		}
 	}
 }
