@@ -147,6 +147,102 @@ MonoBehaviour:
     m_Key: ConfirmReturnToLevelSelection
     m_Metadata:
       m_Items: []
+  - m_Id: 201150147013283840
+    m_Key: Controls/BuildTower1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201150779581435904
+    m_Key: Controls/BuildTower2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201150939048873984
+    m_Key: Controls/BuildTower3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151051443638272
+    m_Key: Controls/BuildTower4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151126538457088
+    m_Key: Controls/BuildTower5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151258063441920
+    m_Key: Controls/BuildTower6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151344457715712
+    m_Key: Controls/BuildTower7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151441824288768
+    m_Key: Controls/BuildTower8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151537131458560
+    m_Key: Controls/BuildTower9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151621017538560
+    m_Key: Controls/BuildTower10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201151756925571072
+    m_Key: Controls/PauseGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201152037398679552
+    m_Key: Controls/ResumeGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201152247394897920
+    m_Key: Controls/MoveCameraUp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201152417171935232
+    m_Key: Controls/MoveCameraDown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201152554518614016
+    m_Key: Controls/MoveCameraLeft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201152710542528512
+    m_Key: Controls/MoveCameraRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201152857779376128
+    m_Key: Controls/RotateTower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201153258046001152
+    m_Key: SettingsUI/Apply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201153930199994368
+    m_Key: SettingsUI/Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201157694457810944
+    m_Key: MainMenu/Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201157865765769216
+    m_Key: MainMenu/Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201158100432883712
+    m_Key: MainMenu/StartGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201158231135784960
+    m_Key: MainMenu/ContinueGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 201158655871979520
+    m_Key: MainMenu/Exit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

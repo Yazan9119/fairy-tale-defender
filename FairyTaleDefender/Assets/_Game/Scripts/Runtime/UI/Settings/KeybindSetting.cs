@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using BoundfoxStudios.FairyTaleDefender.Common;
 using BoundfoxStudios.FairyTaleDefender.Systems.InputSystem.ScriptableObjects;
 using BoundfoxStudios.FairyTaleDefender.Systems.SettingsSystem.ScriptableObjects;
@@ -81,7 +81,7 @@ namespace BoundfoxStudios.FairyTaleDefender.UI.Settings
 
 		public void ResetBinding()
 		{
-			if(_action == null || _action.bindings.Count <= _bindingIndex)
+			if (_action == null || _action.bindings.Count <= _bindingIndex)
 			{
 				Debug.LogError("Could not find action or binding");
 				return;
