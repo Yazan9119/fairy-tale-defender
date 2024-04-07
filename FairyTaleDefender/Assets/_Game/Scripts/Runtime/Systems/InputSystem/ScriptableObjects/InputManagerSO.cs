@@ -130,5 +130,10 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.InputSystem.ScriptableObject
 			_ongoingRebind?.Dispose();
 			_ongoingRebind = null;
 		}
+
+		private void OnDisable()
+		{
+			CleanUp();
+		}
 	}
 }
