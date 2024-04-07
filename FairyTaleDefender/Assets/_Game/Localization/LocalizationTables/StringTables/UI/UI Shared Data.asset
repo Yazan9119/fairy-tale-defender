@@ -243,6 +243,10 @@ MonoBehaviour:
     m_Key: MainMenu/Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 204356585826279424
+    m_Key: Settings/ResetGameProgress
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

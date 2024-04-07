@@ -81,7 +81,6 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SaveGameSystem.ScriptableObj
 
 				await _fileManager.WriteAsync(meta.MetaFilePath, meta);
 			}
-
 			catch
 			{
 				await _directoryManager.DeleteAsync(meta.Directory);
@@ -107,6 +106,18 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.SaveGameSystem.ScriptableObj
 			var slugifiedName = saveName.Slugify();
 
 			return await IsValidSaveGameAsync(slugifiedName);
+		}
+
+		public async UniTask DeleteSaveGameAsync(string saveName)
+		{
+			var slugifiedName = saveName.Slugify();
+
+			if (!await IsValidSaveGameAsync(slugifiedName))
+			{
+				return;
+			}
+
+			await _directoryManager.DeleteAsync(CreatePath(slugifiedName));
 		}
 
 		private async UniTask<bool> IsValidSaveGameAsync(string directory)

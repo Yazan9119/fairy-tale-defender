@@ -46,6 +46,9 @@ namespace BoundfoxStudios.FairyTaleDefender.UI.Confirmation
 		private void Awake()
 		{
 			Panel.SetActive(false);
+
+			// Unparent the dialog so it will be independent of any parent game object positioning.
+			transform.SetParent(null, false);
 		}
 
 		public void Open()
@@ -53,7 +56,6 @@ namespace BoundfoxStudios.FairyTaleDefender.UI.Confirmation
 			ConfirmationText.text = ConfirmationMessage!.GetLocalizedString();
 			ConfirmButton.onClick.AddListener(ConfirmButtonPressed);
 			CancelButton.onClick.AddListener(CancelButtonPressed);
-
 			Panel.SetActive(true);
 		}
 

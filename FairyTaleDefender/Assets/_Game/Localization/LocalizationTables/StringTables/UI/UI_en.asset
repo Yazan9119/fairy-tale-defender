@@ -249,6 +249,10 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 204356585826279424
+    m_Localized: Do you really want to reset your progress? Everything will be lost!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
