@@ -62,6 +62,7 @@ namespace BoundfoxStudios.FairyTaleDefender.EditorExtensions.ScriptableObjects
 		{
 			public GameObject TabGroup = default!;
 			public GameObject TabGroupHeaderButton = default!;
+			public GameObject ScrollView = default!;
 		}
 
 		[Serializable]

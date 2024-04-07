@@ -20,8 +20,15 @@ namespace BoundfoxStudios.FairyTaleDefender.Editor.Menus.GameObjectMenu
 			await SafeInstantiateAsync(prefabManager => prefabManager.Containers.TabGroupHeaderButton);
 		}
 
+		[MenuItem(Constants.MenuNames.GameObjectMenus.Containers + "/Scroll View", priority = UIMenuPriority)]
+		// ReSharper disable once Unity.IncorrectMethodSignature
+		private static async UniTaskVoid CreateScrollViewAsync()
+		{
+			await SafeInstantiateAsync(prefabManager => prefabManager.Containers.ScrollView);
+		}
 
 		[MenuItem(Constants.MenuNames.GameObjectMenus.Buttons + "/Tab Group", true)]
+		[MenuItem(Constants.MenuNames.GameObjectMenus.Containers + "/Scroll View", true)]
 		private static bool ContainersValidation() => SelectionHasCanvasValidate();
 
 		[MenuItem(Constants.MenuNames.GameObjectMenus.Containers + "/Tab Group Header Button", true)]

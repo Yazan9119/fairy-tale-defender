@@ -31,6 +31,8 @@ MonoBehaviour:
       type: 3}
     TabGroupHeaderButton: {fileID: 5569965669829330202, guid: 23f0c39268d344788bb235bc4e2e8604,
       type: 3}
+    ScrollView: {fileID: 7744147072337204585, guid: d2091a2c5877d4cbab38352bd6aa2aa6,
+      type: 3}
   Inputs:
     InputField: {fileID: 2621281240769190127, guid: 0f855f66dd30a4535becb25b07b103ad,
       type: 3}
