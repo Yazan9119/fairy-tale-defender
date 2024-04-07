@@ -8,6 +8,10 @@ icon: fa-solid fa-timeline
 
 Klicke Screenshots an, um sie zu vergrößern.
 
+## 07.04.2024
+
+{{< gallery match="assets/2024-04-07/*" rowHeight="150" margins="5" thumbnailResizeOptions="300x300 q90 Lanczos" previewType="none" embedPreview=true loadJQuery=false >}}
+
 ## 03.12.2023
 
 {{< gallery match="assets/2023-12-03/*" rowHeight="150" margins="5" thumbnailResizeOptions="300x300 q90 Lanczos" previewType="none" embedPreview=true loadJQuery=false >}}
