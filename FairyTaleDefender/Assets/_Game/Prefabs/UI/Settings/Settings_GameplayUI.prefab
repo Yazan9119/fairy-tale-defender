@@ -936,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 7298016007625527156, guid: 6f8289fd6f75c4c838755d2515507423,
         type: 3}
       propertyPath: m_Name
-      value: PanningSpeed
+      value: Reset_Label
       objectReference: {fileID: 0}
     - target: {fileID: 8884370737280889821, guid: 6f8289fd6f75c4c838755d2515507423,
         type: 3}
