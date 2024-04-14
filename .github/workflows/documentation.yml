@@ -61,11 +61,11 @@ jobs:
       - run: cp ./resources/Blendfiles/Blender-Starter.blend ./BlenderStarterKit
       - run: mkdir ./BlenderStarterKit/scripts
       - run: cp ./docs/content/docs/docs-visual/blender/assets/BoundfoxStudios-Export.py ./BlenderStarterKit/scripts
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: ColorPalette_Summer.png
           path: ./BlenderStarterKit/textures/
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: Windscale.png
           path: ./BlenderStarterKit/textures
@@ -101,7 +101,7 @@ jobs:
       - run: cp ./resources/Blendfiles/Tree.blend ./BlenderStudio
       - run: mkdir ./BlenderStudio/scripts
       - run: cp ./docs/content/docs/docs-visual/blender/assets/BoundfoxStudios-Export.py ./BlenderStudio/scripts
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: ColorPalette_Summer.png
           path: ./BlenderStudio/textures/
