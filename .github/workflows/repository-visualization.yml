@@ -9,7 +9,7 @@ jobs:
   render-and-upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
         
@@ -24,11 +24,11 @@ jobs:
           logo_url: docs/static/bfs-head.png
           gource_file_filter: '\.meta$'
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - run: npm install vimeo
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v7
         env:
           VIMEO_CLIENT_ID: ${{ secrets.VIMEO_CLIENT_ID }}
           VIMEO_CLIENT_SECRET: ${{ secrets.VIMEO_CLIENT_SECRET }}

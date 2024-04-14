@@ -20,14 +20,14 @@ jobs:
   psd-to-png:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.ref }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - run: npm install @webtoon/psd@0.3.0 pngjs@6.0.0
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v7
         with:
           script: |
             const { default: Psd } = await import('${{ github.workspace }}/node_modules/@webtoon/psd/dist/index.js');
@@ -42,7 +42,7 @@ jobs:
             const png = new PNG({ width: psdFile.width, height: psdFile.height });
             png.data = Buffer.from(pixelData);
             png.pack().pipe(fs.createWriteStream('./${{ inputs.output-filename }}'));
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.output-filename }}
           path: ./${{ inputs.output-filename }}

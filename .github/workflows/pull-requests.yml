@@ -30,7 +30,7 @@ jobs:
     if: needs.change-detection.outputs.unity == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: "refs/pull/${{ github.event.number }}/merge"
       - uses: ./.github/actions/linter
@@ -41,7 +41,7 @@ jobs:
     if: needs.change-detection.outputs.unity == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: "refs/pull/${{ github.event.number }}/merge"
       - name: Check if Steam integration is enabled
