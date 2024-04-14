@@ -1,4 +1,3 @@
-using System;
 using BoundfoxStudios.FairyTaleDefender.Common;
 using BoundfoxStudios.FairyTaleDefender.Extensions;
 using BoundfoxStudios.FairyTaleDefender.Infrastructure.Events.ScriptableObjects;
@@ -33,7 +32,10 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.GameplaySystem
 		private WaveSpawnedEventChannelSO WaveSpawnedEventChannel { get; set; } = default!;
 
 		[field: SerializeField]
-		private VoidEventChannelSO AllObjectivesCompletedEventChannel { get; set; } = default!;
+		private VoidEventChannelSO PlayerDiedEventChannel { get; set; } = default!;
+
+		[field: SerializeField]
+		private VoidEventChannelSO AllEnemiesDefeatedEventChannel { get; set; } = default!;
 
 		[field: Header("Broadcasting Channels")]
 		[field: SerializeField]
@@ -49,14 +51,16 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.GameplaySystem
 		{
 			SceneReadyEventChannel.Raised += SceneReady;
 			WaveSpawnedEventChannel.Raised += WaveSpawned;
-			AllObjectivesCompletedEventChannel.Raised += ObjectivesCompleted;
+			PlayerDiedEventChannel.Raised += PlayerDied;
+			AllEnemiesDefeatedEventChannel.Raised += AllEnemiesDefeated;
 		}
 
 		private void OnDisable()
 		{
 			SceneReadyEventChannel.Raised -= SceneReady;
 			WaveSpawnedEventChannel.Raised -= WaveSpawned;
-			AllObjectivesCompletedEventChannel.Raised -= ObjectivesCompleted;
+			PlayerDiedEventChannel.Raised -= PlayerDied;
+			AllEnemiesDefeatedEventChannel.Raised -= AllEnemiesDefeated;
 		}
 
 		private void Start()
@@ -64,7 +68,12 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.GameplaySystem
 			SaveGameRuntimeAnchor.ItemSafe.Data.LastLevel = LevelRuntimeAnchor.ItemSafe;
 		}
 
-		private void ObjectivesCompleted()
+		private void PlayerDied()
+		{
+			FinishLevel(false);
+		}
+
+		private void AllEnemiesDefeated()
 		{
 			FinishLevel(true);
 		}
@@ -75,6 +84,11 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.GameplaySystem
 			{
 				PlayerHasWon = playerWon
 			});
+
+			if (!playerWon)
+			{
+				return;
+			}
 
 			// TODO: Possibly move this somewhere else
 			var currentLevelIdentity = LevelRuntimeAnchor.ItemSafe;

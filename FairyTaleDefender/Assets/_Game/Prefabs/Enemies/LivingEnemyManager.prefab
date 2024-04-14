@@ -50,3 +50,9 @@ MonoBehaviour:
     type: 2}
   <EnemyDestroyedEventChannel>k__BackingField: {fileID: 11400000, guid: 1f1fa5af3f23ae04cbb6a25a570857dc,
     type: 2}
+  <WaveSpawnedEventChannel>k__BackingField: {fileID: 11400000, guid: 1aea3c49e16d89c46a94522c1357ca48,
+    type: 2}
+  <GamePlayStartedEventChannel>k__BackingField: {fileID: 11400000, guid: 99f85e4fb463f481781ca948ecefe0dc,
+    type: 2}
+  <AllEnemiesDefeatedEventChannel>k__BackingField: {fileID: 11400000, guid: 422c38e1db7567644855553e31de87d7,
+    type: 2}

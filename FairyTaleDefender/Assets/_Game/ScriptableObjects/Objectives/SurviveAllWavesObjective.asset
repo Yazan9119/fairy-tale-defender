@@ -14,9 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ObjectiveCompletedEventChannel>k__BackingField: {fileID: 11400000, guid: afe01205a1f439249ba3b2669561f78a,
     type: 2}
-  <LivingEnemies>k__BackingField: {fileID: 11400000, guid: 4972058b527553a4dbc326d3ad59bc0c,
-    type: 2}
-  <WaveSpawnedEventChannel>k__BackingField: {fileID: 11400000, guid: 1aea3c49e16d89c46a94522c1357ca48,
-    type: 2}
-  <RuntimeSetChangedEventChannel>k__BackingField: {fileID: 11400000, guid: 365748769eff81e4ab831f3bc9575de3,
+  <AllEnemiesDefeatedEventChannel>k__BackingField: {fileID: 11400000, guid: 422c38e1db7567644855553e31de87d7,
     type: 2}

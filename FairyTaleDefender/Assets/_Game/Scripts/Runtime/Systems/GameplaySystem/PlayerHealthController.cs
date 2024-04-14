@@ -25,19 +25,19 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.GameplaySystem
 
 		[field: Header("Broadcasting Channels")]
 		[field: SerializeField]
-		private LevelFinishedEventChannelSO LevelFinishedEventChannel { get; set; } = default!;
+		private VoidEventChannelSO PlayerDiedEventChannel { get; set; } = default!;
 
 		private void OnEnable()
 		{
 			EnemyDamagesPlayerEventChannel.Raised += EnemyDamagesPlayer;
-			Health.Dead += LevelFinished;
+			Health.Dead += PlayerDied;
 			SceneReadyEventChannel.Raised += PrepareHealth;
 		}
 
 		private void OnDisable()
 		{
 			EnemyDamagesPlayerEventChannel.Raised -= EnemyDamagesPlayer;
-			Health.Dead -= LevelFinished;
+			Health.Dead -= PlayerDied;
 			SceneReadyEventChannel.Raised -= PrepareHealth;
 		}
 
@@ -47,12 +47,9 @@ namespace BoundfoxStudios.FairyTaleDefender.Systems.GameplaySystem
 				LevelRuntimeAnchor.ItemSafe.PlayerStartResources.Health);
 		}
 
-		private void LevelFinished()
+		private void PlayerDied()
 		{
-			LevelFinishedEventChannel.Raise(new()
-			{
-				PlayerHasWon = false
-			});
+			PlayerDiedEventChannel.Raise();
 		}
 
 		private void EnemyDamagesPlayer(int damage)

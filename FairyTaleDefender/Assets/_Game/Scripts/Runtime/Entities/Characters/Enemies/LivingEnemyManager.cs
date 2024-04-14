@@ -19,16 +19,34 @@ namespace BoundfoxStudios.FairyTaleDefender.Entities.Characters.Enemies
 		[field: SerializeField]
 		public EnemyEventChannelSO EnemyDestroyedEventChannel { get; private set; } = default!;
 
+		[field: SerializeField]
+		public WaveSpawnedEventChannelSO WaveSpawnedEventChannel { get; private set; } = default!;
+
+		[field: SerializeField]
+		public VoidEventChannelSO GamePlayStartedEventChannel { get; private set; } = default!;
+
+		[field: Header("Broadcasting Channels")]
+		[field: SerializeField]
+		private VoidEventChannelSO AllEnemiesDefeatedEventChannel { get; set; } = default!;
+
+		private bool _levelHasMoreWaves = true;
+
 		private void OnEnable()
 		{
 			EnemySpawnedEventChannel.Raised += EnemySpawned;
 			EnemyDestroyedEventChannel.Raised += EnemyDestroyed;
+			GamePlayStartedEventChannel.Raised += GamePlayStarted;
+			WaveSpawnedEventChannel.Raised += WaveSpawned;
 		}
 
 		private void OnDisable()
 		{
 			EnemySpawnedEventChannel.Raised -= EnemySpawned;
 			EnemyDestroyedEventChannel.Raised -= EnemyDestroyed;
+			GamePlayStartedEventChannel.Raised -= GamePlayStarted;
+			WaveSpawnedEventChannel.Raised -= WaveSpawned;
+
+			LivingEnemies.Clear();
 		}
 
 		private void EnemySpawned(Enemy spawnedEnemy)
@@ -39,6 +57,27 @@ namespace BoundfoxStudios.FairyTaleDefender.Entities.Characters.Enemies
 		private void EnemyDestroyed(Enemy destroyedEnemy)
 		{
 			LivingEnemies.Remove(destroyedEnemy);
+
+			if (!LevelHasMoreEnemies())
+			{
+				AllEnemiesDefeatedEventChannel.Raise();
+			}
+		}
+
+		private void WaveSpawned(WaveSpawnedEventChannelSO.EventArgs args)
+		{
+			_levelHasMoreWaves = args.LevelHasMoreWaves;
+		}
+
+		private void GamePlayStarted()
+		{
+			_levelHasMoreWaves = true;
+			LivingEnemies.Clear();
+		}
+
+		private bool LevelHasMoreEnemies()
+		{
+			return LivingEnemies.Items.Count > 0 || _levelHasMoreWaves;
 		}
 	}
 }
