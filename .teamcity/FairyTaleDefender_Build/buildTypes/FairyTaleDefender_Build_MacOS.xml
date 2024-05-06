@@ -8,6 +8,7 @@
     </options>
     <disabled-settings>
       <setting-ref ref="BUILD_EXT_1" />
+      <setting-ref ref="Install_il2cpp" />
     </disabled-settings>
     <parameters />
     <build-runners order="Install_il2cpp, RUNNER_2">
