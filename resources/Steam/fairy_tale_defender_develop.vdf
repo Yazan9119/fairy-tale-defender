@@ -24,19 +24,19 @@
 			"FileExclusion" "**/*_BackUpThisFolder_ButDontShipItWithYourGame*"
 		}
 		
-		// "2350332"
-		// {
-		//	"FileMapping"
-		//	{
-		//		"LocalPath" "macOS/*"
-		//		"DepotPath" "."
-		//		"recursive" "1"
-		//	}
+		"2350332"
+		{
+			"FileMapping"
+			{
+				"LocalPath" "macOS/*"
+				"DepotPath" "."
+				"recursive" "1"
+			}
 			
-		//	"FileExclusion" "*.pdb"
-		//	"FileExclusion" "**/*_BurstDebugInformation_DoNotShip*"
-		//	"FileExclusion" "**/*_BackUpThisFolder_ButDontShipItWithYourGame*"
-		// }
+			"FileExclusion" "*.pdb"
+			"FileExclusion" "**/*_BurstDebugInformation_DoNotShip*"
+			"FileExclusion" "**/*_BackUpThisFolder_ButDontShipItWithYourGame*"
+		}
 		
 		"2350333"
 		{
