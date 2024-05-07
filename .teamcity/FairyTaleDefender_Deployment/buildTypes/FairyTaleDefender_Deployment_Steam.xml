@@ -46,6 +46,10 @@ steamcmd +login %STEAM_BUILDER_USERNAME% +run_app_build "$(pwd)/resources/Steam/
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="Linux.zip!** =&gt; resources/Steam/content/Linux" />
       </dependency>
+      <dependency id="ARTIFACT_DEPENDENCY_7" sourceBuildTypeId="FairyTaleDefender_Build_MacOS" cleanDestination="false">
+        <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
+        <artifact sourcePath="MacOS.zip!** =&gt; resources/Steam/content/MacOS" />
+      </dependency>
       <dependency id="ARTIFACT_DEPENDENCY_4" sourceBuildTypeId="FairyTaleDefender_Build_Windows" cleanDestination="false">
         <revisionRule name="sameChainOrLastFinished" revision="latest.sameChainOrLastFinished" />
         <artifact sourcePath="Windows.zip!** =&gt; resources/Steam/content/Windows" />
